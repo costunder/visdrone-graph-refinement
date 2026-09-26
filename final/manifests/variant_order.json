@@ -1,0 +1,400 @@
+{
+  "numbering_policy": "legacy_artifact_registry_public_catalog_separate",
+  "public_numbering_source": "final/manifests/current_experiments.json",
+  "note": "Each experiment starts at local ID 00. Historical unified IDs are retained only as internal_variant_name for provenance and shared-runner compatibility.",
+  "mapping_source": "final/manifests/experiment_variant_ids.json",
+  "production_pe_studies": {
+    "matched_pe_v2": {
+      "manifest": "final/manifests/matched_pe_execution_20260923.json",
+      "spec": "final/MATCHED_PE_EXECUTION_20260923.md",
+      "status": "experiment_1_baseline_seed42_training",
+      "active_run_state": "final/experiment_1/runs/matched_pe_v2/02_gnn_no_cluster/seed_42/progress.json",
+      "experiment_1_output_root": "final/experiment_1/runs/matched_pe_v2",
+      "public_ids": ["02", "06", "07"],
+      "seed": 42,
+      "historical_checkpoint_or_metric_reused": false
+    },
+    "graph_pe_production_v1": {
+      "manifest": "final/manifests/graph_pe_production_proposal.json",
+      "spec": "final/GRAPH_PE_PRODUCTION_DESIGN_PROPOSAL.md",
+      "experiment_1_output_root": "final/experiment_1/runs/graph_pe_production_v1",
+      "implementation": "final/graph_pe_production.py",
+      "status": "experiment_1_signnet_seed42_completed_comparison_incomplete",
+      "active_run_state": "final/experiment_1/runs/graph_pe_production_v1/10/signnet/aligned/seed_42/progress.json",
+      "legacy_numeric_ids_reinterpreted": false,
+      "historical_checkpoint_or_metric_reused": false
+    }
+  },
+  "baseline_provenance": {
+    "canonical_variant": "experiment_1/01_gois_reimplementation",
+    "legacy_artifact_alias": "01_gois_original_repo",
+    "implementation": "local_reimplementation",
+    "upstream_gois_entrypoint_invoked": false,
+    "exact_paper_table_reproduction": false,
+    "paper_doi": "10.1016/j.neucom.2025.130327"
+  },
+  "layout": {
+    "shared_detector_and_cache": "final/runs/table6_yolo11_10class_extra_ablation",
+    "experiment_1_results": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation",
+    "experiment_2_results": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation",
+    "experiment_3_results": "final/experiment_3/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation"
+  },
+  "experiments": {
+    "experiment_1": {
+      "question": "Under a fixed raw detector pool, does pre-NMS typed graph relation modeling improve proposal scoring?",
+      "graph_schema": "v2_pre_nms_typed_relations",
+      "pipeline_code_version": 48,
+      "local_order": [
+        "00",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "09",
+        "10",
+        "11"
+      ],
+      "variants": [
+        {
+          "local_id": "00",
+          "name": "full_inference",
+          "internal_variant_name": "00_full_inference",
+          "status": "completed",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/00_full_inference"
+        },
+        {
+          "local_id": "01",
+          "name": "gois_reimplementation",
+          "internal_variant_name": "01_gois_reimplementation",
+          "legacy_artifact_alias": "01_gois_original_repo",
+          "status": "completed",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/01_gois_reimplementation"
+        },
+        {
+          "local_id": "02",
+          "name": "gnn_no_cluster",
+          "internal_variant_name": "02_gnn_no_cluster",
+          "status": "unverified_historical",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/02_gnn_no_cluster"
+        },
+        {
+          "local_id": "03",
+          "name": "gnn_dbscan_cluster",
+          "internal_variant_name": "03_gnn_dbscan_cluster",
+          "status": "unverified_historical",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/03_gnn_dbscan_cluster"
+        },
+        {
+          "local_id": "04",
+          "name": "size_refinement_gnn",
+          "internal_variant_name": "05_size_refinement_gnn",
+          "status": "unverified_historical",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/04_size_refinement_gnn"
+        },
+        {
+          "local_id": "05",
+          "name": "gnn_prune_same_pool",
+          "internal_variant_name": "08_gnn_prune_same_pool",
+          "status": "invalid_control_comparison",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/05_gnn_prune_same_pool"
+        },
+        {
+          "local_id": "09",
+          "name": "gnn_no_cluster_zero_pe",
+          "internal_variant_name": "09_gnn_no_cluster_zero_pe",
+          "status": "configured_not_run",
+          "implementation_path": "final/experiment_1/graph_pe_model.py",
+          "runner_path": "final/experiment_1/run_graph_pe_ablation.py",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/09_gnn_no_cluster_zero_pe",
+          "base_variant": "02_gnn_no_cluster",
+          "pe_activation": "zero",
+          "expected_trainable_parameters": 628810
+        },
+        {
+          "local_id": "10",
+          "name": "gnn_no_cluster_signnet_pe",
+          "internal_variant_name": "10_gnn_no_cluster_signnet_pe",
+          "status": "configured_not_run",
+          "implementation_path": "final/experiment_1/graph_pe_model.py",
+          "runner_path": "final/experiment_1/run_graph_pe_ablation.py",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/10_gnn_no_cluster_signnet_pe",
+          "base_variant": "02_gnn_no_cluster",
+          "pe_activation": "signnet_project_adaptation",
+          "expected_trainable_parameters": 628810
+        },
+        {
+          "local_id": "11",
+          "name": "gnn_no_cluster_rpearl_pe",
+          "internal_variant_name": "11_gnn_no_cluster_rpearl_pe",
+          "status": "configured_not_run",
+          "implementation_path": "final/experiment_1/graph_pe_model.py",
+          "runner_path": "final/experiment_1/run_graph_pe_ablation.py",
+          "path": "final/experiment_1/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/11_gnn_no_cluster_rpearl_pe",
+          "base_variant": "02_gnn_no_cluster",
+          "pe_activation": "rpearl_project_adaptation",
+          "expected_trainable_parameters": 628810
+        }
+      ],
+      "pe_id_policy": "Active PE IDs start at 09 to avoid collision with archived removed local 06 and historical internal 07-08 names.",
+      "pe_ablation": {
+        "status": "configured_not_run",
+        "pe_code_version": 2,
+        "runner_code_version": 3,
+        "execution_status": "blocked_pending_production_design",
+        "production_approved": false,
+        "retained_configuration_role": "legacy_cpu_regression_only",
+        "production_proposal_path": "final/GRAPH_PE_PRODUCTION_DESIGN_PROPOSAL.md",
+        "production_proposal_manifest": "final/manifests/graph_pe_production_proposal.json",
+        "checkpoint_schema": "graph_pe_training_v2",
+        "selection_policy": "exact_top_3_by_unrounded_validation_loss_then_best_ap_earliest_epoch_ties",
+        "capacity_matching_scope": "registered_parameters_and_executed_operators_only",
+        "active_capacity_matched": false,
+        "pe_loss_path_parameters_after_gate_opens": {"zero": 0, "signnet": 84676, "rpearl": 94948},
+        "spec_path": "final/GRAPH_POSITIONAL_ENCODING_SPEC.md",
+        "base_variant": "02_gnn_no_cluster",
+        "runner_path": "final/experiment_1/run_graph_pe_ablation.sh",
+        "training_authorized": false,
+        "training_performed": false,
+        "evaluation_performed": false,
+        "detector_inference_performed": false,
+        "base_trainable_parameters": 449187,
+        "pe_trainable_parameters": 179623,
+        "full_trainable_parameters": 628810,
+        "controlled_difference": "Only the post-encoder PE activation mask differs among 09/10/11; raw candidates, base features, edges, target, weight, loss, instantiated architecture, registered parameter count, seed, score rule and final NMS are identical. Active learning capacity is different and is not isolated from the PE intervention."
+      }
+    },
+    "experiment_2": {
+      "question": "Can a graph rescue useful low-confidence candidates without an unbounded dense graph?",
+      "local_order": [
+        "00",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11"
+      ],
+      "variants": [
+        {
+          "local_id": "00",
+          "name": "gnn_conf_rescue",
+          "internal_variant_name": "04_gnn_conf_rescue",
+          "status": "completed",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/00_gnn_conf_rescue"
+        },
+        {
+          "local_id": "01",
+          "name": "size_refinement_conf_rescue",
+          "internal_variant_name": "06_size_refinement_conf_rescue",
+          "status": "completed",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/01_size_refinement_conf_rescue"
+        },
+        {
+          "local_id": "02",
+          "name": "low_conf_cluster_token_hgnn_refinement",
+          "internal_variant_name": "07_low_conf_cluster_token_hgnn_refinement",
+          "status": "completed",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/02_low_conf_cluster_token_hgnn_refinement"
+        },
+        {
+          "local_id": "03",
+          "name": "sparse_edge_sage",
+          "internal_variant_name": "09_exp2_sparse_edge_sage",
+          "status": "completed",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/03_sparse_edge_sage",
+          "best_ap": 0.175821
+        },
+        {
+          "local_id": "04",
+          "name": "ppr_gatv2_sage",
+          "internal_variant_name": "10_exp2_ppr_gatv2_sage",
+          "status": "completed",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/04_ppr_gatv2_sage",
+          "best_ap": 0.177066
+        },
+        {
+          "local_id": "05",
+          "name": "ppr_gatv2_sage_no_gois",
+          "internal_variant_name": "11_exp2_ppr_gatv2_sage_no_gois",
+          "status": "completed",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/05_ppr_gatv2_sage_no_gois",
+          "best_ap": 0.116618
+        },
+        {
+          "local_id": "06",
+          "name": "class_relation_ppr_gatv2_sage",
+          "internal_variant_name": "06_class_relation_ppr_gatv2_sage",
+          "status": "completed",
+          "implementation_path": "final/experiment_2/sparse_ppr_sage.py",
+          "result_path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/06_class_relation_ppr_gatv2_sage",
+          "best_ap": 0.17715,
+          "graph_type": "relational_homogeneous"
+        },
+        {
+          "local_id": "07",
+          "name": "hetero_detection_class_view_gatv2",
+          "internal_variant_name": "07_hetero_detection_class_view_gatv2",
+          "status": "completed",
+          "implementation_path": "final/experiment_2/hetero_detection_class_view.py",
+          "training_path": "final/experiment_2/hetero_training.py",
+          "result_path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/07_hetero_detection_class_view_gatv2",
+          "graph_type": "true_heterogeneous",
+          "node_types": [
+            "detection",
+            "class",
+            "view"
+          ],
+          "best_ap": 0.152326,
+          "best_epoch": 40,
+          "primary_inference_policy": "foreground_gate_alpha_1_with_class_correction",
+          "inference_ablation_path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/07_hetero_detection_class_view_gatv2/inference_policy_ablation/epoch_040",
+          "posthoc_best_inference_policy": "foreground_gate_alpha_0.25_with_class_correction",
+          "posthoc_best_ap": 0.155987,
+          "detector_inference_rerun": false
+        },
+        {
+          "local_id": "08",
+          "name": "controlled_hetero_ppr_gatv2_sage",
+          "internal_variant_name": "08_controlled_hetero_ppr_gatv2_sage",
+          "status": "completed",
+          "implementation_path": "final/experiment_2/controlled_hetero_graph.py",
+          "training_path": "final/experiment_2/controlled_hetero_training.py",
+          "result_path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/08_controlled_hetero_ppr_gatv2_sage",
+          "graph_type": "true_heterogeneous_controlled",
+          "controlled_against": "06_class_relation_ppr_gatv2_sage",
+          "node_types": [
+            "detection",
+            "class",
+            "view"
+          ],
+          "variant_trainable_parameters": 224021,
+          "reference_trainable_parameters": 237087,
+          "best_ap": 0.175064,
+          "best_epoch": 34,
+          "delta_vs_reference_ap": -0.002086,
+          "selection_policy": "top_3_by_validation_loss_then_best_ap",
+          "model_capacity_path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/08_controlled_hetero_ppr_gatv2_sage/model_capacity.json",
+          "relation_mixture_path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/08_controlled_hetero_ppr_gatv2_sage/learned_relation_mixture.json",
+          "detector_inference_rerun": false
+        },
+        {
+          "local_id": "09",
+          "name": "class_relation_ppr_zero_pe",
+          "internal_variant_name": "09_class_relation_ppr_zero_pe",
+          "status": "configured_not_run",
+          "implementation_path": "final/experiment_2/graph_pe_model.py",
+          "runner_path": "final/experiment_2/run_graph_pe_ablation.py",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/09_class_relation_ppr_zero_pe",
+          "base_variant": "06_class_relation_ppr_gatv2_sage",
+          "pe_activation": "zero",
+          "graph_type": "relational_homogeneous_with_pe_adapter",
+          "expected_trainable_parameters": 416710
+        },
+        {
+          "local_id": "10",
+          "name": "class_relation_ppr_signnet_pe",
+          "internal_variant_name": "10_class_relation_ppr_signnet_pe",
+          "status": "configured_not_run",
+          "implementation_path": "final/experiment_2/graph_pe_model.py",
+          "runner_path": "final/experiment_2/run_graph_pe_ablation.py",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/10_class_relation_ppr_signnet_pe",
+          "base_variant": "06_class_relation_ppr_gatv2_sage",
+          "pe_activation": "signnet_project_adaptation",
+          "graph_type": "relational_homogeneous_with_pe_adapter",
+          "expected_trainable_parameters": 416710
+        },
+        {
+          "local_id": "11",
+          "name": "class_relation_ppr_rpearl_pe",
+          "internal_variant_name": "11_class_relation_ppr_rpearl_pe",
+          "status": "configured_not_run",
+          "implementation_path": "final/experiment_2/graph_pe_model.py",
+          "runner_path": "final/experiment_2/run_graph_pe_ablation.py",
+          "path": "final/experiment_2/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/11_class_relation_ppr_rpearl_pe",
+          "base_variant": "06_class_relation_ppr_gatv2_sage",
+          "pe_activation": "rpearl_project_adaptation",
+          "graph_type": "relational_homogeneous_with_pe_adapter",
+          "expected_trainable_parameters": 416710
+        }
+      ],
+      "pe_ablation": {
+        "status": "configured_not_run",
+        "pe_code_version": 2,
+        "runner_code_version": 3,
+        "execution_status": "blocked_pending_production_design",
+        "production_approved": false,
+        "retained_configuration_role": "legacy_cpu_regression_only",
+        "production_proposal_path": "final/GRAPH_PE_PRODUCTION_DESIGN_PROPOSAL.md",
+        "production_proposal_manifest": "final/manifests/graph_pe_production_proposal.json",
+        "checkpoint_schema": "graph_pe_training_v2",
+        "selection_policy": "exact_top_3_by_unrounded_validation_loss_then_best_ap_earliest_epoch_ties",
+        "capacity_matching_scope": "registered_parameters_and_executed_operators_only",
+        "active_capacity_matched": false,
+        "pe_loss_path_parameters_after_gate_opens": {"zero": 0, "signnet": 84676, "rpearl": 94948},
+        "spec_path": "final/GRAPH_POSITIONAL_ENCODING_SPEC.md",
+        "base_variant": "06_class_relation_ppr_gatv2_sage",
+        "runner_path": "final/experiment_2/run_graph_pe_ablation.sh",
+        "training_authorized": false,
+        "training_performed": false,
+        "evaluation_performed": false,
+        "detector_inference_performed": false,
+        "base_trainable_parameters": 237087,
+        "pe_trainable_parameters": 179623,
+        "full_trainable_parameters": 416710,
+        "controlled_difference": "Only the post-encoder PE activation mask differs among 09/10/11; low-confidence candidates, sparse/PPR graph, target, weight, loss, instantiated architecture, registered parameter count, seed, score rule, cutoff and final NMS are identical. Active learning capacity is different and is not isolated from the PE intervention."
+      }
+    },
+    "experiment_3": {
+      "question": "Does passing a frozen pre-NMS Experiment-1 graph prior into the full low-confidence Experiment-2 PPR graph improve rescue over a capacity-matched zero-prior control?",
+      "pipeline_schema": "sequential_pre_nms_exp1_prior_to_exp2_ppr_v1",
+      "code_version": 1,
+      "status": "configured_not_run",
+      "training_authorized": false,
+      "training_performed": false,
+      "evaluation_performed": false,
+      "detector_inference_performed": false,
+      "source_variants": {
+        "experiment_1": {
+          "variant": "02_gnn_no_cluster",
+          "epoch": 116,
+          "frozen": true,
+          "role": "pre-NMS graph prior on detector-score >= 0.25 core"
+        },
+        "experiment_2": {
+          "variant": "06_class_relation_ppr_gatv2_sage",
+          "role": "stage-2 architecture and low-confidence rescue contract"
+        }
+      },
+      "controlled_contract": "Variants use identical raw candidates, sparse/PPR edges, targets, loss, model capacity, seed, scoring, and final NMS; only five appended prior channel values differ.",
+      "single_final_nms": true,
+      "local_order": [
+        "00",
+        "01"
+      ],
+      "variants": [
+        {
+          "local_id": "00",
+          "name": "zero_prior_control",
+          "internal_variant_name": "00_zero_prior_control",
+          "status": "configured_not_run",
+          "path": "final/experiment_3/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/00_zero_prior_control"
+        },
+        {
+          "local_id": "01",
+          "name": "exp1_graph_prior_exp2_ppr",
+          "internal_variant_name": "01_exp1_graph_prior_exp2_ppr",
+          "status": "configured_not_run",
+          "path": "final/experiment_3/runs/table6_yolo11_10class_extra_ablation/pipeline_ablation/01_exp1_graph_prior_exp2_ppr"
+        }
+      ],
+      "primary_conclusion": "No performance conclusion: Experiment 3 has not been run.",
+      "invalid_archive": "final/experiment_3/archive/invalid_post_nms_late_fusion_20260813"
+    }
+  }
+}

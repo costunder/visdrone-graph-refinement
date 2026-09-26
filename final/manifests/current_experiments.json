@@ -1,0 +1,39 @@
+{
+  "schema": "public_experiment_catalog_v1",
+  "date": "2026-09-23",
+  "numbering": "Public IDs are contiguous per experiment; artifact and legacy runner IDs are immutable and are not public IDs.",
+  "comparison_spec": "final/COMPARISON_REPAIR_SPEC.md",
+  "execution_authorized": false,
+  "scoped_execution_manifest": "final/manifests/matched_pe_execution_20260923.json",
+  "execution_note": "Blanket authorization is false. Experiment-1 matched seed42 scope is separately authorized; conformance still required.",
+  "experiments": {
+    "experiment_1": [
+      {"id": "00", "name": "full_inference", "legacy_variant": "00_full_inference", "status": "historical_result"},
+      {"id": "01", "name": "gois_reimplementation", "legacy_variant": "01_gois_reimplementation", "status": "historical_result"},
+      {"id": "02", "name": "gnn_no_cluster", "legacy_variant": "02_gnn_no_cluster", "status": "unverified_historical", "matched_revision": "training_seed42", "matched_run_path": "final/experiment_1/runs/matched_pe_v2/02_gnn_no_cluster/seed_42"},
+      {"id": "03", "name": "gnn_dbscan_cluster", "legacy_variant": "03_gnn_dbscan_cluster", "status": "unverified_historical"},
+      {"id": "04", "name": "size_refinement_gnn", "legacy_variant": "05_size_refinement_gnn", "status": "unverified_historical"},
+      {"id": "05", "name": "gnn_prune_same_pool", "legacy_variant": "08_gnn_prune_same_pool", "status": "invalid_control_comparison"},
+      {"id": "06", "name": "gnn_no_cluster_signnet_pe", "legacy_variant": "10_gnn_no_cluster_signnet_pe", "mode": "signnet", "status": "completed_single_seed_unmatched", "run_path": "final/experiment_1/runs/graph_pe_production_v1/10/signnet/aligned/seed_42"},
+      {"id": "07", "name": "gnn_no_cluster_rpearl_pe", "legacy_variant": "11_gnn_no_cluster_rpearl_pe", "mode": "rpearl", "status": "implemented_not_trained"}
+    ],
+    "experiment_2": [
+      {"id": "00", "name": "gnn_conf_rescue", "legacy_variant": "04_gnn_conf_rescue", "status": "historical_result"},
+      {"id": "01", "name": "size_refinement_conf_rescue", "legacy_variant": "06_size_refinement_conf_rescue", "status": "historical_result"},
+      {"id": "02", "name": "low_conf_cluster_token_hgnn_refinement", "legacy_variant": "07_low_conf_cluster_token_hgnn_refinement", "status": "historical_result"},
+      {"id": "03", "name": "sparse_edge_sage", "legacy_variant": "09_exp2_sparse_edge_sage", "status": "historical_result"},
+      {"id": "04", "name": "ppr_gatv2_sage", "legacy_variant": "10_exp2_ppr_gatv2_sage", "status": "historical_result"},
+      {"id": "05", "name": "ppr_gatv2_sage_no_gois", "legacy_variant": "11_exp2_ppr_gatv2_sage_no_gois", "status": "historical_result"},
+      {"id": "06", "name": "class_relation_ppr_gatv2_sage", "legacy_variant": "06_class_relation_ppr_gatv2_sage", "status": "historical_result", "matched_revision": "proposed_not_run"},
+      {"id": "07", "name": "hetero_detection_class_view_gatv2", "legacy_variant": "07_hetero_detection_class_view_gatv2", "status": "noncontrolled_comparison"},
+      {"id": "08", "name": "controlled_hetero_ppr_gatv2_sage", "legacy_variant": "08_controlled_hetero_ppr_gatv2_sage", "status": "historical_controlled_protocol_capacity_approximate"},
+      {"id": "09", "name": "class_relation_ppr_signnet_pe", "legacy_variant": "10_class_relation_ppr_signnet_pe", "mode": "signnet", "status": "production_model_cpu_verified_runner_and_input_pending", "model_path": "final/experiment_2/production_pe_model.py"},
+      {"id": "10", "name": "class_relation_ppr_rpearl_pe", "legacy_variant": "11_class_relation_ppr_rpearl_pe", "mode": "rpearl", "status": "production_model_cpu_verified_runner_and_input_pending", "model_path": "final/experiment_2/production_pe_model.py"}
+    ],
+    "experiment_3": []
+  },
+  "excluded": {
+    "separate_no_pe_number": "Removed from public enumeration. A matched baseline would be a new revision of experiment_1/02 or experiment_2/06, not an extra method.",
+    "experiment_3": "Existing zero-prior and exp1-prior-to-exp2 variants are preserved but execution-blocked: stage order and handoff semantics rejected/unconfirmed. No replacement architecture approved."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "study": "matched_pe_v2",
+  "status": "experiment_1_baseline_seed42_training",
+  "active_run": {
+    "public_id": "02",
+    "pid_at_launch": 596982,
+    "path": "final/experiment_1/runs/matched_pe_v2/02_gnn_no_cluster/seed_42",
+    "state_source": "progress.json",
+    "observed_training_started_at": "2026-09-23T10:30:19.627764+00:00"
+  },
+  "foreground_sequence": ["experiment_1/02", "experiment_1/06", "experiment_1/07"],
+  "stop_sequence_on_failure": true,
+  "implementation_authorized": true,
+  "training_authorized": true,
+  "gpu_validation_authorized": true,
+  "evaluation_authorized": true,
+  "execution_authorized_experiments": ["experiment_1"],
+  "allowed_modes": ["no_pe", "signnet", "rpearl"],
+  "allowed_seeds": [42],
+  "allowed_alignments": ["aligned"],
+  "approval": {
+    "date": "2026-09-23",
+    "user_message": "아니 실험 1과 ㅅ실험2 제대로 돌려보라고",
+    "scope": "Run experiments 1 and 2 with the corrected comparison conditions. Start the common prerequisite experiment-1 baseline/SignNet/R-PEARL seed42 group; other variants are not implicitly enabled.",
+    "experiment_2_status": "execution_requested_but_production_implementation_and_actual_view_cache_not_ready",
+    "experiment_2_detector_cache_regeneration_authorized": false,
+    "experiment_3_authorized": false
+  },
+  "public_ids": {"no_pe": "02", "signnet": "06", "rpearl": "07"},
+  "output_root": "final/experiment_1/runs/matched_pe_v2",
+  "spec": "final/MATCHED_PE_EXECUTION_20260923.md",
+  "historical_checkpoint_reused": false,
+  "architecture_contract": "final/GRAPH_PE_PRODUCTION_DESIGN_PROPOSAL.md"
+}

@@ -1,0 +1,126 @@
+{
+  "public_numbering_source": "final/manifests/current_experiments.json",
+  "legacy_registry_note": "The experiment records below retain artifact/internal IDs for historical compatibility, not current public enumeration. Separate zero-PE variants are excluded from the public catalog.",
+  "experiment_1": {
+    "production_study_revisions": {
+      "graph_pe_production_v1": {
+        "manifest": "final/manifests/graph_pe_production_proposal.json",
+        "local_id_profiles": {"09": ["no_pe/main"], "10": ["signnet/aligned", "signnet/node_permuted_control"], "11": ["rpearl/aligned", "rpearl/node_permuted_control"]},
+        "output_root": "final/experiment_1/runs/graph_pe_production_v1",
+        "legacy_contract_unchanged": true
+      }
+    },
+    "local_order": [
+      "00_full_inference",
+      "01_gois_reimplementation",
+      "02_gnn_no_cluster",
+      "03_gnn_dbscan_cluster",
+      "04_size_refinement_gnn",
+      "05_gnn_prune_same_pool",
+      "09_gnn_no_cluster_zero_pe",
+      "10_gnn_no_cluster_signnet_pe",
+      "11_gnn_no_cluster_rpearl_pe"
+    ],
+    "internal_to_local": {
+      "00_full_inference": "00_full_inference",
+      "01_gois_reimplementation": "01_gois_reimplementation",
+      "02_gnn_no_cluster": "02_gnn_no_cluster",
+      "03_gnn_dbscan_cluster": "03_gnn_dbscan_cluster",
+      "05_size_refinement_gnn": "04_size_refinement_gnn",
+      "08_gnn_prune_same_pool": "05_gnn_prune_same_pool",
+      "09_gnn_no_cluster_zero_pe": "09_gnn_no_cluster_zero_pe",
+      "10_gnn_no_cluster_signnet_pe": "10_gnn_no_cluster_signnet_pe",
+      "11_gnn_no_cluster_rpearl_pe": "11_gnn_no_cluster_rpearl_pe"
+    },
+    "legacy_artifact_to_local": {
+      "01_gois_original_repo": "01_gois_reimplementation"
+    },
+    "runner_scopes": {
+      "existing": [
+        "00",
+        "01",
+        "02",
+        "03",
+        "04",
+        "05"
+      ],
+      "pe": [
+        "09",
+        "10",
+        "11"
+      ]
+    }
+  },
+  "experiment_2": {
+    "local_order": [
+      "00_gnn_conf_rescue",
+      "01_size_refinement_conf_rescue",
+      "02_low_conf_cluster_token_hgnn_refinement",
+      "03_sparse_edge_sage",
+      "04_ppr_gatv2_sage",
+      "05_ppr_gatv2_sage_no_gois",
+      "06_class_relation_ppr_gatv2_sage",
+      "07_hetero_detection_class_view_gatv2",
+      "08_controlled_hetero_ppr_gatv2_sage",
+      "09_class_relation_ppr_zero_pe",
+      "10_class_relation_ppr_signnet_pe",
+      "11_class_relation_ppr_rpearl_pe"
+    ],
+    "internal_to_local": {
+      "04_gnn_conf_rescue": "00_gnn_conf_rescue",
+      "06_size_refinement_conf_rescue": "01_size_refinement_conf_rescue",
+      "07_low_conf_cluster_token_hgnn_refinement": "02_low_conf_cluster_token_hgnn_refinement",
+      "09_exp2_sparse_edge_sage": "03_sparse_edge_sage",
+      "10_exp2_ppr_gatv2_sage": "04_ppr_gatv2_sage",
+      "11_exp2_ppr_gatv2_sage_no_gois": "05_ppr_gatv2_sage_no_gois",
+      "06_class_relation_ppr_gatv2_sage": "06_class_relation_ppr_gatv2_sage",
+      "07_hetero_detection_class_view_gatv2": "07_hetero_detection_class_view_gatv2",
+      "08_controlled_hetero_ppr_gatv2_sage": "08_controlled_hetero_ppr_gatv2_sage",
+      "09_class_relation_ppr_zero_pe": "09_class_relation_ppr_zero_pe",
+      "10_class_relation_ppr_signnet_pe": "10_class_relation_ppr_signnet_pe",
+      "11_class_relation_ppr_rpearl_pe": "11_class_relation_ppr_rpearl_pe"
+    },
+    "legacy_artifact_to_local": {},
+    "runner_scopes": {
+      "existing": [
+        "00",
+        "01",
+        "02"
+      ],
+      "followup": [
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08"
+      ],
+      "pe": [
+        "09",
+        "10",
+        "11"
+      ]
+    }
+  },
+  "experiment_3": {
+    "local_order": [
+      "00_zero_prior_control",
+      "01_exp1_graph_prior_exp2_ppr"
+    ],
+    "internal_to_local": {
+      "00_zero_prior_control": "00_zero_prior_control",
+      "01_exp1_graph_prior_exp2_ppr": "01_exp1_graph_prior_exp2_ppr"
+    },
+    "legacy_artifact_to_local": {},
+    "source_variants": {
+      "experiment_1": "02_gnn_no_cluster/epoch_116_frozen",
+      "experiment_2": "06_class_relation_ppr_gatv2_sage_architecture"
+    },
+    "runner_scopes": {
+      "sequential": [
+        "00",
+        "01"
+      ]
+    }
+  }
+}

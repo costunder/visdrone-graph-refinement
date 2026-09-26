@@ -1,0 +1,14 @@
+# Observed project environment; install the appropriate PyTorch wheel for your hardware.
+torch==2.9.1
+torchvision==0.24.1
+torch-geometric==2.7.0
+numpy==2.2.6
+scipy==1.17.0
+scikit-learn==1.8.0
+Pillow==12.0.0
+pycocotools==2.0.11
+tqdm==4.67.1
+ultralytics==8.4.21
+matplotlib==3.10.8
+PyYAML==6.0.3
+psutil==7.0.0
